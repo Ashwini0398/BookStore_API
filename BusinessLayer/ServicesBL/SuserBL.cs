@@ -25,11 +25,9 @@ namespace BusinessLayer.ServicesBL
             return result;
         }
 
-        public bool LoginUser(UserLogin userLogin)
+        public UserLoginResponse LoginUser(UserLogin userLogin)
         {
-            FUserRL.LoginUser(userLogin);
-
-            return true;
+            return FUserRL.LoginUser(userLogin);
         }
     }
 }

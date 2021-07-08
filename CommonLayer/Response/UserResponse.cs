@@ -15,7 +15,9 @@ namespace CommonLayer.Response
 
     public class UserLoginResponse
     {
+        public int UserId { get; set; }
         public string EmailId { get; set; }
-        
+        public string UserCatrgory { get; set; }
+
     }
 }

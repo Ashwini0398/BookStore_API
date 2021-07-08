@@ -9,6 +9,6 @@ namespace BusinessLayer.InterfaceBL
     public interface IFUserBL 
     {
         public UserResponse AddUser(UserRegistration userRequest);
-        public bool LoginUser(UserLogin userLogin);
+        public UserLoginResponse LoginUser(UserLogin userLogin);
     }
 }

@@ -44,3 +44,11 @@ C:\Users\DELL\source\repos\BookStoreApplication\BookStoreApplication\bin\Debug\n
 C:\Users\DELL\source\repos\BookStoreApplication\BookStoreApplication\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\DELL\source\repos\BookStoreApplication\BookStoreApplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\DELL\source\repos\BookStoreApplication\BookStoreApplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\DELL\source\repos\BookStoreApplication\BookStoreApplication\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\DELL\source\repos\BookStoreApplication\BookStoreApplication\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\DELL\source\repos\BookStoreApplication\BookStoreApplication\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\DELL\source\repos\BookStoreApplication\BookStoreApplication\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\DELL\source\repos\BookStoreApplication\BookStoreApplication\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\DELL\source\repos\BookStoreApplication\BookStoreApplication\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\DELL\source\repos\BookStoreApplication\BookStoreApplication\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\DELL\source\repos\BookStoreApplication\BookStoreApplication\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

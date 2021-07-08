@@ -103,9 +103,9 @@ namespace RepositoryLayer.ServicesRL
                 while (dataReader.Read())
                 {
                     userLoginResponse = new UserLoginResponse
-                    {                        
-                        EmailId = dataReader["EmailID"].ToString(),
-                        
+                    {
+                        UserId = Convert.ToInt32(dataReader["UserID"]),
+                        EmailId = dataReader["EmailID"].ToString(),                        
                     };
                 }
                 return userLoginResponse;
