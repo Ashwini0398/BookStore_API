@@ -1,0 +1,9 @@
+C:\Users\DELL\source\repos\BookStoreApplication\CommonLayer\bin\Debug\netcoreapp3.1\CommonLayer.deps.json
+C:\Users\DELL\source\repos\BookStoreApplication\CommonLayer\bin\Debug\netcoreapp3.1\CommonLayer.dll
+C:\Users\DELL\source\repos\BookStoreApplication\CommonLayer\bin\Debug\netcoreapp3.1\CommonLayer.pdb
+C:\Users\DELL\source\repos\BookStoreApplication\CommonLayer\obj\Debug\netcoreapp3.1\CommonLayer.csproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\BookStoreApplication\CommonLayer\obj\Debug\netcoreapp3.1\CommonLayer.AssemblyInfoInputs.cache
+C:\Users\DELL\source\repos\BookStoreApplication\CommonLayer\obj\Debug\netcoreapp3.1\CommonLayer.AssemblyInfo.cs
+C:\Users\DELL\source\repos\BookStoreApplication\CommonLayer\obj\Debug\netcoreapp3.1\CommonLayer.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\BookStoreApplication\CommonLayer\obj\Debug\netcoreapp3.1\CommonLayer.dll
+C:\Users\DELL\source\repos\BookStoreApplication\CommonLayer\obj\Debug\netcoreapp3.1\CommonLayer.pdb

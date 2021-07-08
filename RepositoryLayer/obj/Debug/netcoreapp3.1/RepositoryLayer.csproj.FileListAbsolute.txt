@@ -1,0 +1,12 @@
+C:\Users\DELL\source\repos\BookStoreApplication\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.deps.json
+C:\Users\DELL\source\repos\BookStoreApplication\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.dll
+C:\Users\DELL\source\repos\BookStoreApplication\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.pdb
+C:\Users\DELL\source\repos\BookStoreApplication\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.csproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\BookStoreApplication\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.AssemblyInfoInputs.cache
+C:\Users\DELL\source\repos\BookStoreApplication\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.AssemblyInfo.cs
+C:\Users\DELL\source\repos\BookStoreApplication\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\BookStoreApplication\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.dll
+C:\Users\DELL\source\repos\BookStoreApplication\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.pdb
+C:\Users\DELL\source\repos\BookStoreApplication\RepositoryLayer\bin\Debug\netcoreapp3.1\CommonLayer.dll
+C:\Users\DELL\source\repos\BookStoreApplication\RepositoryLayer\bin\Debug\netcoreapp3.1\CommonLayer.pdb
+C:\Users\DELL\source\repos\BookStoreApplication\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.csproj.CopyComplete
