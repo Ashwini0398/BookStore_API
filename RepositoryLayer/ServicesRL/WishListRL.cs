@@ -179,10 +179,10 @@ namespace RepositoryLayer.Services
                         WishListID = Convert.ToInt32(dataReader["WishListID"]),
                         UserID = Convert.ToInt32(dataReader["UserID"]),
                         BookName = dataReader["BookName"].ToString(),
-                        Author = dataReader["AuthorName"].ToString(),
+                        Author = dataReader["Author"].ToString(),
                         BookID = Convert.ToInt32(dataReader["BookID"]),
                         Price = Convert.ToInt32(dataReader["Price"]),
-                        Image = dataReader["Images"].ToString(),
+                        Image = dataReader["BookImage"].ToString(),
                     };
                 }
                 return responseData;
@@ -210,10 +210,10 @@ namespace RepositoryLayer.Services
                         WishListID = Convert.ToInt32(dataReader["WishListID"]),
                         UserID = Convert.ToInt32(dataReader["UserID"]),
                         BookName = dataReader["BookName"].ToString(),
-                        Author = dataReader["AuthorName"].ToString(),
+                        Author = dataReader["Author"].ToString(),
                         BookID = Convert.ToInt32(dataReader["BookID"]),
                         Price = Convert.ToInt32(dataReader["Price"]),
-                        Image = dataReader["Images"].ToString(),
+                        Image = dataReader["BookImage"].ToString(),
                     };
                     bookList.Add(responseData);
                 }

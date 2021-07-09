@@ -181,7 +181,7 @@ namespace RepositoryLayer.Services
                         BookName = dataReader["BookName"].ToString(),
                         Author = dataReader["Author"].ToString(),
                         Price = Convert.ToInt32(dataReader["Price"]),
-                        Image = dataReader["Images"].ToString(),
+                        Image = dataReader["BookImage"].ToString(),
                     };
                 }
                 return responseData;
