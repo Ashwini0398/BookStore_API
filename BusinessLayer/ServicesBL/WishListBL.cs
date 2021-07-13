@@ -78,7 +78,7 @@ namespace BusinessLayer.Services
         {
             try
             {
-                if (userID <= 0 && data != null )
+                if (userID <= 0 && data.WishListID <= 0 )
                 {
                     return null;
                 }

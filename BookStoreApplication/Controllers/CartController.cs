@@ -42,7 +42,7 @@ namespace BookStoreApplication.Controllers
             }
             catch (Exception ex)
             {
-                return this.Ok
+                return this.BadRequest
                 (new
                 {
                     Data = new { ex },
@@ -74,7 +74,7 @@ namespace BookStoreApplication.Controllers
             }
             catch (Exception ex)
             {
-                return this.Ok
+                return this.BadRequest
                 (new
                 {
                     Data = new { ex },

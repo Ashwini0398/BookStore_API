@@ -20,7 +20,8 @@ namespace BookStoreApplication.Controllers
             wishList = wishlistBL;
         }
 
-        [Route("")]
+        [Route("{Book_ID}")]
+     
         [HttpPost]
         [Authorize(Roles = "User")]
         public ActionResult AddWishList(WishList wishlist)
@@ -42,7 +43,7 @@ namespace BookStoreApplication.Controllers
             }
             catch (Exception ex)
             {
-                return this.Ok
+                return this.BadRequest
                 (new
                 {
                     Data = new { ex },
@@ -73,7 +74,7 @@ namespace BookStoreApplication.Controllers
             }
             catch (Exception ex)
             {
-                return this.Ok
+                return this.BadRequest
                 (new
                 {
                     Data = new { ex },
@@ -83,7 +84,7 @@ namespace BookStoreApplication.Controllers
             }
 
         }
-        [Route("MoveToCart")]
+        [Route("MoveToCart/{User_ID}")]
         [HttpPost]
         public ActionResult MoveWishListToCart(Wish_List wishlist)
         {
@@ -104,7 +105,7 @@ namespace BookStoreApplication.Controllers
             }
             catch (Exception ex)
             {
-                return this.Ok
+                return this.BadRequest
                 (new
                 {
                     Data = new { ex },

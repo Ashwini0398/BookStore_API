@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.InterfaceBL;
 using CommonLayer.Request;
 using CommonLayer.Response;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,6 +22,7 @@ namespace BookStoreApplication.Controllers
         }
        
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddBook(BookRequest bookRequest)
         {
             try
@@ -45,7 +47,7 @@ namespace BookStoreApplication.Controllers
             }
             catch (Exception ex)
             {
-                return this.Ok
+                return this.BadRequest
                 (new
                 {
                     Data = new { },
@@ -56,8 +58,8 @@ namespace BookStoreApplication.Controllers
 
         }
 
-        
         [HttpGet]
+        [Authorize(Roles = "User")]
         public ActionResult GetBook()
         {
             try
@@ -74,7 +76,7 @@ namespace BookStoreApplication.Controllers
             }
             catch (Exception ex)
             {
-                return this.Ok
+                return this.BadRequest
                 (new
                 {
                     Data = new { },
@@ -86,6 +88,7 @@ namespace BookStoreApplication.Controllers
         }
         [Route("{BookId}")]
         [HttpPut]
+        [Authorize(Roles = "Admin")]
         public ActionResult UpdateBooks(int BookId, BookRequest bookRequest)
         {
             try
@@ -109,6 +112,7 @@ namespace BookStoreApplication.Controllers
 
         [Route("{BookId}")]
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteBooks(int BookId)
         {
             try

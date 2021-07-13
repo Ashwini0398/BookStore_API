@@ -8,30 +8,32 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BookStoreApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class User : ControllerBase
+    public class AdminController : ControllerBase
     {
-        public User(IFUserBL userBL, IConfiguration configuration)
+        private readonly IConfiguration _configuration;
+        private readonly IAdminBL _adminBL;
+        public AdminController(IAdminBL adminBL, IConfiguration configuration)
         {
-            _userBL = userBL;
+            _adminBL = adminBL;
             _configuration = configuration;
         }
 
-        private IConfiguration _configuration;
-        private IFUserBL _userBL;
-        [Route("Registration")]
+        [Route("Admin")]
         [HttpPost]
-        public ActionResult UserRegistration(UserRegistration userRequest) 
+        public ActionResult AdminRegistration(UserRegistration userRequest)
         {
             try
             {
-                var result = _userBL.AddUser(userRequest);
+                var result = _adminBL.AddUser(userRequest);
 
                 if (result == null)
                 {
@@ -45,42 +47,44 @@ namespace BookStoreApplication.Controllers
 
                 }
 
-                var response = new UserResponse()
+                var response = new AdminResponse()
                 {
-                    UserId = result.UserId,
+                    AdminId = result.AdminId,
                     FirstName = result.FirstName,
                     EmailId = result.EmailId,
                     CreatedDate = result.CreatedDate
                 };
 
                 return this.Ok
-                (new {
-                Data = response,
-                message = "Registration Successful",
-                Success = true
+                (new
+                {
+                    Data = response,
+                    message = "Registration Successful",
+                    Success = true
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return this.BadRequest
                 (new
                 {
                     Data = new { },
-                    message = "Registration Fail",
+                    message = ex.Message,
                     Success = false
                 });
                 throw;
             }
 
-            
+
         }
-        [Route("login")]
+
+        [Route("AdminLogin")]
         [HttpPost]
-        public ActionResult UserLogin(UserLogin userLogin)
+        public ActionResult AdminLogin(UserLogin userLogin)
         {
             try
             {
-                var result = _userBL.LoginUser(userLogin);
+                var result = _adminBL.LoginUser(userLogin);
 
                 if (result == null)
                 {
@@ -94,36 +98,37 @@ namespace BookStoreApplication.Controllers
 
                 }
 
-                UserLoginResponse userLoginResponse = new UserLoginResponse() {
-                        EmailId = result.EmailId,
-                        UserId = result.UserId,
-                        UserCatrgory = "User"
+                AdminLoginResponse adminLoginResponse = new AdminLoginResponse()
+                {
+                    EmailId = result.EmailId,
+                    AdminId = result.AdminId,
+                    UserCatrgory = "Admin"
                 };
 
-                var token = GenerateToken(userLoginResponse);
+                var token = GenerateToken(adminLoginResponse);
                 return this.Ok
                 (new
                 {
-                    Data = userLoginResponse,
+                    Data = adminLoginResponse,
                     Token = token,
                     message = "Login Successful",
                     Success = true
                 });
             }
-            catch (Exception )
+            catch (Exception ex)
             {
                 return this.BadRequest
                 (new
                 {
                     Data = new { },
-                    message = "Login Fail",
+                    message = ex.Message,
                     Success = false
                 });
                 throw;
             }
         }
 
-        private string GenerateToken(UserLoginResponse Info)
+        private string GenerateToken(AdminLoginResponse Info)
         {
             try
             {
@@ -135,7 +140,7 @@ namespace BookStoreApplication.Controllers
                 {
                     new Claim(ClaimTypes.Role, Info.UserCatrgory),
                     new Claim("EmailID", Info.EmailId),
-                    new Claim("UserID", Info.UserId.ToString())
+                    new Claim("AdminID", Info.AdminId.ToString())
                 };
                 var token = new JwtSecurityToken(_configuration["Jwt:Issuer"],
                     _configuration["Jwt:Issuer"],
@@ -151,4 +156,4 @@ namespace BookStoreApplication.Controllers
         }
 
     }
-    }
+}

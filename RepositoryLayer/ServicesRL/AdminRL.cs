@@ -10,7 +10,7 @@ using System.Text;
 
 namespace RepositoryLayer.ServicesRL
 {
-    public class SUserRL : IFUserRL 
+    public class AdminRL : IAdminRL
     {
         private readonly IConfiguration _configuration;
         private SqlConnection conn;
@@ -20,14 +20,14 @@ namespace RepositoryLayer.ServicesRL
             conn = new SqlConnection(sqlConnectionString);
         }
 
-        public SUserRL(IConfiguration configuration)
+        public AdminRL(IConfiguration configuration)
         {
 
             _configuration = configuration;
         }
-        public UserResponse AddUser(UserRegistration userRequest) 
+        public AdminResponse AddUser(UserRegistration userRequest)
         {
-            UserResponse userResponse = new UserResponse();
+            AdminResponse adminResponse = new AdminResponse();
             DateTime createDate = DateTime.Now;
             DateTime modifiedDate = DateTime.Now;
 
@@ -42,46 +42,26 @@ namespace RepositoryLayer.ServicesRL
                 command.Parameters.AddWithValue("@Password", userRequest.Password);
                 command.Parameters.AddWithValue("@CreateDate", createDate);
                 command.Parameters.AddWithValue("@ModifiedDate", modifiedDate);
-                command.Parameters.AddWithValue("@UserCategory", "User");
+                command.Parameters.AddWithValue("@UserCategory", "Admin");
 
                 conn.Open();
                 SqlDataReader dataReader = command.ExecuteReader();
-                userResponse = RegistrationResponseModel(dataReader);
+                adminResponse = RegistrationResponseModel(dataReader);
                 conn.Close();
             };
-            return userResponse;
+            return adminResponse;
         }
 
-        public UserLoginResponse LoginUser(UserLogin userLogin)
-        {
-            UserLoginResponse userLoginResponse = new UserLoginResponse();
-            SQLConnection();
-            using (SqlCommand command = new SqlCommand("spUserLogin", conn))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-             
-                command.Parameters.AddWithValue("@EmailID", userLogin.EmailId);
-                command.Parameters.AddWithValue("@Password", userLogin.Password);
-
-                conn.Open();
-                SqlDataReader dataReader = command.ExecuteReader();
-                userLoginResponse = LoginResponseModel(dataReader);
-                conn.Close();
-            };
-
-            return userLoginResponse;
-        }
-
-        private UserResponse RegistrationResponseModel(SqlDataReader dataReader)
+        private AdminResponse RegistrationResponseModel(SqlDataReader dataReader)
         {
             try
             {
-                UserResponse responseData = null;
+                AdminResponse responseData = null;
                 while (dataReader.Read())
                 {
-                    responseData = new UserResponse
+                    responseData = new AdminResponse
                     {
-                        UserId = Convert.ToInt32(dataReader["UserID"]),
+                        AdminId = Convert.ToInt32(dataReader["UserID"]),
                         FirstName = dataReader["FirstName"].ToString(),
                         EmailId = dataReader["EmailID"].ToString(),
                         CreatedDate = Convert.ToDateTime(dataReader["CreateDate"])
@@ -91,29 +71,52 @@ namespace RepositoryLayer.ServicesRL
             }
             catch (Exception ex)
             {
-              throw  ex;
+                throw ex;
             }
         }
 
-        private UserLoginResponse LoginResponseModel(SqlDataReader dataReader)
+        public AdminLoginResponse LoginUser(UserLogin userLogin)
+        {
+            AdminLoginResponse adminLoginResponse = new AdminLoginResponse();
+            SQLConnection();
+            using (SqlCommand command = new SqlCommand("spAdminLogin", conn))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@EmailID", userLogin.EmailId);
+                command.Parameters.AddWithValue("@Password", userLogin.Password);
+
+
+                conn.Open();
+                SqlDataReader dataReader = command.ExecuteReader();
+                adminLoginResponse = LoginResponseModel(dataReader);
+                conn.Close();
+            };
+
+            return adminLoginResponse;
+
+        }
+
+        private AdminLoginResponse LoginResponseModel(SqlDataReader dataReader)
         {
             try
             {
-                UserLoginResponse userLoginResponse = null;
+                AdminLoginResponse AdminLoginResponse = null;
                 while (dataReader.Read())
                 {
-                    userLoginResponse = new UserLoginResponse
+                    AdminLoginResponse = new AdminLoginResponse
                     {
-                        UserId = Convert.ToInt32(dataReader["UserID"]),
-                        EmailId = dataReader["EmailID"].ToString(),                        
+                        AdminId = Convert.ToInt32(dataReader["UserID"]),
+                        EmailId = dataReader["EmailID"].ToString(),
                     };
                 }
-                return userLoginResponse;
+                return AdminLoginResponse;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
     }
 }
